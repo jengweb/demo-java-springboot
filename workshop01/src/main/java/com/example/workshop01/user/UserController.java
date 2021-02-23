@@ -1,8 +1,6 @@
 package com.example.workshop01.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +25,17 @@ public class UserController {
         users.add(user2);
         users.add(user3);
         return users;
+    }
+
+    @PostMapping("/users")
+    public UserResponse createNewUser(@RequestBody UserRequest newUser) {
+        // Validate input
+        // Generate result
+        UserResponse newUserResponse = new UserResponse(
+                1,
+                newUser.getName(),
+                newUser.getAge());
+        return newUserResponse;
     }
 
 

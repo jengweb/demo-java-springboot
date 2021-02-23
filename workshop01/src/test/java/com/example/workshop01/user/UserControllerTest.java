@@ -37,4 +37,17 @@ public class UserControllerTest {
         assertEquals("Somkiat", mapResult.get("name"));
     }
 
+    @Test
+    public void create_new_user() {
+        UserRequest somkiat = new UserRequest();
+        somkiat.setName("somkiat");
+        somkiat.setAge(40);
+
+        UserResponse result
+                = restTemplate.postForObject("/users", somkiat, UserResponse.class);
+        assertEquals(1, result.getId());
+        assertEquals("somkiat", result.getName());
+        assertEquals(40, result.getAge());
+    }
+
 }
