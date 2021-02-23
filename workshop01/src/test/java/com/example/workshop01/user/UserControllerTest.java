@@ -47,14 +47,14 @@ public class UserControllerTest {
 
     @Test
     public void create_new_user() {
-        UserRequest somkiat = new UserRequest();
-        somkiat.setName("somkiat");
-        somkiat.setAge(40);
+        UserRequest jengweb = new UserRequest();
+        jengweb.setName("Jengweb");
+        jengweb.setAge(40);
 
         UserResponse result
-                = restTemplate.postForObject("/users", somkiat, UserResponse.class);
+                = restTemplate.postForObject("/users", jengweb, UserResponse.class);
         assertEquals(1, result.getId());
-        assertEquals("somkiat", result.getName());
+        assertEquals("Jengweb", result.getName());
         assertEquals(40, result.getAge());
     }
 
