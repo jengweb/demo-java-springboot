@@ -3,8 +3,6 @@ package com.example.workshop01;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -23,7 +21,7 @@ public class WorkshopTest {
                 = new GenerateDataService();
         // Method injection
         String result = g.getData(new Random8());
-        assertEquals("somkiat8", result);
+        assertEquals("Jengweb8", result);
     }
 
     @Test
@@ -48,8 +46,8 @@ public class WorkshopTest {
     @DisplayName("สวัสดี junit 5 นะ")
     public void first_case() {
         Hello hello = new Hello();
-        String result = hello.sayHi("somkiat");
-        assertEquals("Hello somkiat", result);
+        String result = hello.sayHi("Jengweb");
+        assertEquals("Hello Jengweb", result);
     }
 
 }

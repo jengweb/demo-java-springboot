@@ -40,7 +40,7 @@ public class RegisterBusiness {
     }
 
     private boolean checkDomainOfEmail(String[] domains, String emailDomain) {
-        return Arrays.stream(domains).filter(it -> it.equals(emailDomain)).count() == 0;
+        return Arrays.stream(domains).noneMatch(it -> it.equals(emailDomain));
     }
 
     private boolean isaBoolean(String firstName) {
