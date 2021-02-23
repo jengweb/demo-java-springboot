@@ -4,14 +4,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 @RestController
 public class UserController {
 
     @GetMapping("/users/{id}")
-    public UserResponse getById(@PathVariable int id) {
-        UserResponse userResponse = new UserResponse(id, "Jengweb", 34);
+    public UserResponse getById(@PathVariable String id) {
+        int _id = -1;
+        try {
+            _id = Integer.parseInt(id);
+        } catch (Exception e) {
+            throw new UserInputInvalidException("Invalid id with " + id);
+        }
+
+        UserResponse userResponse = new UserResponse(_id, "Jengweb", 34);
         return userResponse;
     }
 
