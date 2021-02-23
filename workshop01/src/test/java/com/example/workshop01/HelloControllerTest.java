@@ -19,6 +19,9 @@ public class HelloControllerTest {
         Message result =
                 testRestTemplate.getForObject("/hello", Message.class);
         assertEquals("Hello world", result.getMessage());
+
+        Message expected = new Message("Hello world");
+        assertEquals(expected, result);
     }
 
 }
