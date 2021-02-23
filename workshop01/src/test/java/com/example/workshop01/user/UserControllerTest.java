@@ -28,6 +28,14 @@ public class UserControllerTest {
     }
 
     @Test
+    public void failure_with_invalid_id() {
+        ErrorResponse result
+                = restTemplate.getForObject("/users/abc", ErrorResponse.class);
+        assertEquals(1234, result.getCode());
+        assertEquals("Invalid id with abc", result.getMessage());
+    }
+
+    @Test
     public void get_all_user_with_size_3() {
         List<LinkedHashMap> result
                 = restTemplate.getForObject("/users", List.class);
