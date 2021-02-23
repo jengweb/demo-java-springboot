@@ -23,8 +23,8 @@ public class UserControllerTest {
         UserResponse result
                 = restTemplate.getForObject("/users/1", UserResponse.class);
         assertEquals(1, result.getId());
-        assertEquals("somkiat", result.getName());
-        assertEquals(40, result.getAge());
+        assertEquals("Jengweb", result.getName());
+        assertEquals(34, result.getAge());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class UserControllerTest {
         assertEquals(3, result.size());
         Map mapResult = result.get(2);
         assertEquals(3, mapResult.get("id"));
-        assertEquals("somkiat", mapResult.get("name"));
+        assertEquals("Somkiat", mapResult.get("name"));
     }
 
 }
