@@ -63,7 +63,7 @@ public class UserControllerTest {
                 = restTemplate.postForObject("/users", jengweb, UserResponse.class);
         assertEquals(1, result.getId());
         assertEquals("Jengweb", result.getName());
-        assertEquals(40, result.getAge());
+        assertEquals(34, result.getAge());
     }
 
 }
