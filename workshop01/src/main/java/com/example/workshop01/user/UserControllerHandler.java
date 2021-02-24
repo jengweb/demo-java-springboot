@@ -14,4 +14,10 @@ public class UserControllerHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.OK);
     }
 
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> invalid(UserNotFoundException e) {
+        ErrorResponse errorResponse = new ErrorResponse(4567, e.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.OK);
+    }
+
 }
