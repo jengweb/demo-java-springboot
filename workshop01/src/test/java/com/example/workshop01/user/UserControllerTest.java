@@ -18,8 +18,15 @@ public class UserControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Test
     public void success_found_user_1() {
+        // Prepare data
+        MyUser jengweb = new MyUser(1, "Jengweb", 34);
+        userRepository.save(jengweb);
+        // Test
         UserResponse result
                 = restTemplate.getForObject("/users/1", UserResponse.class);
         assertEquals(1, result.getId());
