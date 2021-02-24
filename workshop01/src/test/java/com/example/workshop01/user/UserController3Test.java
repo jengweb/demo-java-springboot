@@ -24,15 +24,15 @@ public class UserController3Test {
     @Test
     public void success_found_user_1_with_mock() {
         // Prepare data
-        UserResponse userResponse = new UserResponse(1, "somkiat", 40);
+        UserResponse userResponse = new UserResponse(1, "Jengweb", 34);
         when(userService.findById(1))
                 .thenReturn(userResponse);
         // Test
         UserResponse result
                 = restTemplate.getForObject("/users/1", UserResponse.class);
         assertEquals(1, result.getId());
-        assertEquals("somkiat", result.getName());
-        assertEquals(40, result.getAge());
+        assertEquals("Jengweb", result.getName());
+        assertEquals(34, result.getAge());
     }
 
     @Test
