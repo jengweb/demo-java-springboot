@@ -1,0 +1,30 @@
+- request:
+    method: GET
+    url: /users/1
+
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    file: 1.json
+
+- request:
+    method: GET
+    url: /users/2
+
+  response:
+    status: 200
+    latency: 5000
+    headers:
+      content-type: application/json
+    file: 1.json
+
+- request:
+    method: GET
+    url: /users/3
+
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    file: error.json
