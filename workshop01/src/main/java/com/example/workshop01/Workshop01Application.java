@@ -19,21 +19,21 @@ public class Workshop01Application {
 
 	@PostConstruct
 	public void initialData() {
-		MyUser demoUser = new MyUser(123, "demo user", 100);
+		MyUser demoUser = new MyUser(123, "demo Jengweb", 34);
 		userRepository.save(demoUser);
 	}
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context
 				= SpringApplication.run(Workshop01Application.class, args);
-		String[] beans = context.getBeanDefinitionNames();
-		for (String bean : beans) {
-			out.println(bean);
-		}
+//		String[] beans = context.getBeanDefinitionNames();
+//		for (String bean : beans) {
+//			out.println(bean);
+//		}
 		out.println(context.getBeanDefinitionCount());
 
 		Demo demo = context.getBean(Demo.class);
-		demo.setName("Somkiat");
+		demo.setName("Jengweb");
 		demo.hi();
 
 		Demo demo2 = context.getBean(Demo.class);
