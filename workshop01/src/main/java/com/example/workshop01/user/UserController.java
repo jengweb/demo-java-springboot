@@ -1,5 +1,6 @@
 package com.example.workshop01.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -7,6 +8,9 @@ import java.util.List;
 
 @RestController
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/users/{id}")
     public UserResponse getById(@PathVariable String id) {
@@ -16,9 +20,7 @@ public class UserController {
         } catch (Exception e) {
             throw new UserInputInvalidException("Invalid id with " + id);
         }
-
-        UserResponse userResponse = new UserResponse(_id, "Jengweb", 34);
-        return userResponse;
+        return userService.findById(_id);
     }
 
     @GetMapping("/users")
